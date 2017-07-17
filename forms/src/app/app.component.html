@@ -3,16 +3,14 @@
   <h1>
     Werkgroep Angular -- Forms
   </h1>
+  <md-button-toggle-group #group="mdButtonToggleGroup">
+	  <md-button-toggle value="tpl" routerLink="/template">
+	    template driven
+	  </md-button-toggle>
+	  <md-button-toggle value="reactive" routerLink="/reactive">
+	    reactive
+	  </md-button-toggle>
+	</md-button-toggle-group>
 </div>
 
 <router-outlet></router-outlet>
-
-<ul>
-  <li>
-    <h2><a routerLink="/template" routerLinkActive="active">Template driven form</a></h2>
-  </li>
-  <li>
-    <h2><a routerLink="/reactive" routerLinkActive="active">Reactive form</a></h2>
-  </li>
-</ul>
-

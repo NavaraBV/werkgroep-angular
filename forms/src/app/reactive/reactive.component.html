@@ -1,3 +1,18 @@
-<p>
-  reactive works!
-</p>
+<div class="tile">
+	<h3>Reactive form</h3>
+	
+  <form [formGroup]="sehAlertForm" (ngSubmit)="onSubmit(sehAlertForm)">
+	  
+    <md-select placeholder="Level" formControlName="level" (change)="sehAlert.level = $event.value">
+	    <md-option *ngFor="let level of levels" [value]="level.value">
+	      {{level.viewValue}}
+	    </md-option>
+	  </md-select>
+
+	</form>
+
+</div>
+
+<div class="tile">    
+    <preview [sehAlert]="sehAlert"></preview>
+</div>
