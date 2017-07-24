@@ -1,2 +1,16 @@
 <h3>Preview</h3>
-<h1>{{ sehAlert.level }}</h1>
+<div class="preview">
+    <div class="data">
+    <div class="level {{sehAlert.level}}">{{ sehAlert.level }}</div>
+    <div class="label">Trauma</div>
+    <div class="value">{{ sehAlert.traumaType }}</div>
+    <div class="label">Patiëntnaam</div>
+    <div class="value">{{ sehAlert.patientName }}</div>
+    <div class="label">Geb. datum</div>
+    <div class="value">{{ sehAlert.birthDate }}</div>
+    <div class="label">GCS</div>
+    <div class="value">{{ sehAlert.gcs }}</div>
+    <div class="label">Geslacht</div>
+    <div class="value">{{ sehAlert.gender }}</div>
+    </div>
+</div>

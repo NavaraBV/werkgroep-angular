@@ -2,15 +2,32 @@
 	<h3>Reactive form</h3>
 	
   <form [formGroup]="sehAlertForm" (ngSubmit)="onSubmit(sehAlertForm)">
-	  
     <md-select placeholder="Level" formControlName="level" (change)="sehAlert.level = $event.value">
-	    <md-option *ngFor="let level of levels" [value]="level.value">
-	      {{level.viewValue}}
+	    <md-option *ngFor="let level of levels" [value]="level">
+	      {{level}}
 	    </md-option>
-	  </md-select>
-
+		</md-select>
+		<md-select placeholder="Trauma" formControlName="trauma" (change)="sehAlert.traumaType = $event.value" multiple>
+			<md-option *ngFor="let trauma of traumaTypes" [value]="trauma">
+				{{trauma}}
+			</md-option>
+		</md-select>
+		<md-input-container>
+      <input placeholder="Patiëntnaam" type="text" formControlName="patientName" (change)="sehAlert.patientName = $event.target.value" mdInput />
+		</md-input-container>
+		<md-input-container>
+      <input placeholder="GCS" type="number" formControlName="gcs" (change)="sehAlert.gcs = $event.target.value" mdInput />
+		</md-input-container>
+		<md-input-container>
+      <input placeholder="Geb. datum" type="date" formControlName="birthDate" (change)="sehAlert.birthDate = $event.target.value" mdInput />
+    </md-input-container>
+		<md-datepicker #birthDate></md-datepicker>
+		<md-select placeholder="Geslacht" formControlName="gender" (change)="sehAlert.gender = $event.value">
+      <md-option *ngFor="let gender of genders" [value]="gender">
+        {{ gender }}
+      </md-option>
+    </md-select>
 	</form>
-
 </div>
 
 <div class="tile">    

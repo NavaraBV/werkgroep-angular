@@ -1,0 +1,40 @@
+.level {
+    color: white;
+    width: 80px;
+    height: 80px;
+    font-size: 38px;
+    text-align: center;
+    line-height: 80px;
+    display: inline-block;
+}
+
+.label {
+    color: gray;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.value {
+    color: black;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.A1 {
+    background-color: red;
+}
+.A2 {
+    background-color: orange;
+}
+.B1 {
+    background-color: blue;
+}
+.B2 {
+    background-color: lightblue;
+}
+.H {
+    background-color: green;
+}
+.T {
+    background-color: gray;
+}

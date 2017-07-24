@@ -1,13 +1,35 @@
 <div class="tile">
   <h3>Template driven form</h3>
-  <form>
+
+  <form (ngSubmit)="onSubmitForm">
     <md-select placeholder="Level" [(ngModel)]="sehAlert.level" name="level">
-      <md-option *ngFor="let level of levels" [value]="level.value">
-        {{ level.viewValue }}
+      <md-option *ngFor="let level of levels" [value]="level">
+        {{ level }}
+      </md-option>
+    </md-select>
+    <md-select placeholder="Trauma" [(ngModel)]="sehAlert.traumaType" name="trauma" multiple>
+      <md-option *ngFor="let trauma of traumaTypes" [value]="trauma">
+        {{ trauma }}
+      </md-option>
+    </md-select>
+    <md-input-container>
+      <input placeholder="Patiëntnaam" type="text" [(ngModel)]="sehAlert.patientName" name="patientName" mdInput />
+    </md-input-container>
+    <md-input-container>
+      <input placeholder="GCS" type="number" [(ngModel)]="sehAlert.gcs" name="gcs" mdInput />
+    </md-input-container>
+    <md-input-container>
+      <input placeholder="Geb. datum" type="date" [(ngModel)]="sehAlert.birthDate" name="birthDate" mdInput />
+    </md-input-container>
+    <md-datepicker #birthDate></md-datepicker>
+    <md-select placeholder="Geslacht" [(ngModel)]="sehAlert.gender" name="gender">
+      <md-option *ngFor="let gender of genders" [value]="gender">
+        {{ gender }}
       </md-option>
     </md-select>
   </form>
 </div>
+
 <div class="tile">
-    <preview [sehAlert]="sehAlert"></preview>
+  <preview [sehAlert]="sehAlert"></preview>
 </div>
