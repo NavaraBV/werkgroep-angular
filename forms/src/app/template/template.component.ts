@@ -16,7 +16,7 @@ export class TemplateComponent {
   genders = SEHGenders;
   startDate = new Date(1980, 0, 1);
 
-  constructor() { 
+  constructor() {
     this.sehAlert = new SEHAlert();
   }
 

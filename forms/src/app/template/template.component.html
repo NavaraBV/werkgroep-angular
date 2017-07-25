@@ -7,7 +7,7 @@
         {{ level }}
       </md-option>
     </md-select>
-    <md-select placeholder="Trauma" [(ngModel)]="sehAlert.traumaType" name="trauma" multiple required>
+    <md-select placeholder="Trauma" [(ngModel)]="sehAlert.trauma" name="trauma" required>
       <md-option *ngFor="let trauma of traumaTypes" [value]="trauma">
         {{ trauma }}
       </md-option>

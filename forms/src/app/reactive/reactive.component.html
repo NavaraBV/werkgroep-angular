@@ -3,28 +3,28 @@
 		<h3>Reactive form</h3>
 		
 		<form [formGroup]="sehAlertForm" (ngSubmit)="onSubmit(sehAlertForm)">
-			<md-select class="input-element" placeholder="Level" formControlName="level" (change)="sehAlert.level = $event.value">
+			<md-select class="input-element" placeholder="Level" formControlName="level" [(ngModel)]="sehAlert.level">
 				<md-option *ngFor="let level of levels" [value]="level">
 					{{level}}
 				</md-option>
 			</md-select>
-			<md-select placeholder="Trauma" formControlName="trauma" (change)="sehAlert.traumaType = $event.value" multiple>
+			<md-select placeholder="Trauma" formControlName="trauma" [(ngModel)]="sehAlert.trauma">
 				<md-option *ngFor="let trauma of traumaTypes" [value]="trauma">
 					{{trauma}}
 				</md-option>
 			</md-select>
 			<md-input-container>
-				<input placeholder="Patiëntnaam" type="text" formControlName="patientName" (change)="sehAlert.patientName = $event.target.value" mdInput />
+				<input placeholder="Patiëntnaam" type="text" formControlName="patientName" [(ngModel)]="sehAlert.patientName" mdInput />
 			</md-input-container>
 			<md-input-container>
-				<input placeholder="GCS" type="number" formControlName="gcs" (change)="sehAlert.gcs = $event.target.value" mdInput />
+				<input placeholder="GCS" type="number" formControlName="gcs" [(ngModel)]="sehAlert.gcs" mdInput />
 			</md-input-container>
 			<md-input-container>
-				<input placeholder="Geb. datum" formControlName="birthDate" (change)="sehAlert.birthDate = $event.target.value" mdInput [mdDatepicker]="birthDate"/>
+				<input placeholder="Geb. datum" formControlName="birthDate" [(ngModel)]="sehAlert.birthDate" mdInput [mdDatepicker]="birthDate"/>
 				<button mdSuffix [mdDatepickerToggle]="birthDate"></button>
 			</md-input-container>
 			<md-datepicker #birthDate startView="year" [startAt]="startDate"></md-datepicker>
-			<md-select placeholder="Geslacht" formControlName="gender" (change)="sehAlert.gender = $event.value">
+			<md-select placeholder="Geslacht" formControlName="gender" [(ngModel)]="sehAlert.gender">
 				<md-option *ngFor="let gender of genders" [value]="gender">
 					{{ gender }}
 				</md-option>
