@@ -1,32 +1,34 @@
 <div class="tile">
   <h3>Template driven form</h3>
 
-  <form (ngSubmit)="onSubmitForm">
-    <md-select placeholder="Level" [(ngModel)]="sehAlert.level" name="level">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <md-select placeholder="Level" [(ngModel)]="sehAlert.level" name="level" required>
       <md-option *ngFor="let level of levels" [value]="level">
         {{ level }}
       </md-option>
     </md-select>
-    <md-select placeholder="Trauma" [(ngModel)]="sehAlert.traumaType" name="trauma" multiple>
+    <md-select placeholder="Trauma" [(ngModel)]="sehAlert.traumaType" name="trauma" multiple required>
       <md-option *ngFor="let trauma of traumaTypes" [value]="trauma">
         {{ trauma }}
       </md-option>
     </md-select>
     <md-input-container>
-      <input placeholder="Patiëntnaam" type="text" [(ngModel)]="sehAlert.patientName" name="patientName" mdInput />
+      <input placeholder="Patiëntnaam" type="text" [(ngModel)]="sehAlert.patientName" name="patientName" mdInput/>
     </md-input-container>
     <md-input-container>
-      <input placeholder="GCS" type="number" [(ngModel)]="sehAlert.gcs" name="gcs" mdInput />
+      <input placeholder="GCS" type="number" [(ngModel)]="sehAlert.gcs" name="gcs" mdInput/>
     </md-input-container>
     <md-input-container>
-      <input placeholder="Geb. datum" type="date" [(ngModel)]="sehAlert.birthDate" name="birthDate" mdInput />
+      <input placeholder="Geb. datum" [(ngModel)]="sehAlert.birthDate" name="birthDate" mdInput [mdDatepicker]="birthDate"/>
+      <button mdSuffix [mdDatepickerToggle]="birthDate"></button>
     </md-input-container>
-    <md-datepicker #birthDate></md-datepicker>
+    <md-datepicker #birthDate startView="year" [startAt]="startDate"></md-datepicker>
     <md-select placeholder="Geslacht" [(ngModel)]="sehAlert.gender" name="gender">
       <md-option *ngFor="let gender of genders" [value]="gender">
         {{ gender }}
       </md-option>
     </md-select>
+    <button md-raised-button type="submit" [disabled]="!f.valid">Submit</button>
   </form>
 </div>
 

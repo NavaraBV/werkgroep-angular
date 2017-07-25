@@ -14,12 +14,13 @@ export class TemplateComponent {
   levels = SEHLevels;
   traumaTypes = SEHTraumaTypes;
   genders = SEHGenders;
+  startDate = new Date(1980, 0, 1);
 
   constructor() { 
     this.sehAlert = new SEHAlert();
   }
 
-  onSubmitForm(event) {
-
+  onSubmit(form) {
+    console.log(form);
   }
 }

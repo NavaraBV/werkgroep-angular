@@ -19,14 +19,16 @@
       <input placeholder="GCS" type="number" formControlName="gcs" (change)="sehAlert.gcs = $event.target.value" mdInput />
 		</md-input-container>
 		<md-input-container>
-      <input placeholder="Geb. datum" type="date" formControlName="birthDate" (change)="sehAlert.birthDate = $event.target.value" mdInput />
+			<input placeholder="Geb. datum" formControlName="birthDate" (change)="sehAlert.birthDate = $event.target.value" mdInput [mdDatepicker]="birthDate"/>
+			<button mdSuffix [mdDatepickerToggle]="birthDate"></button>
     </md-input-container>
-		<md-datepicker #birthDate></md-datepicker>
+		<md-datepicker #birthDate startView="year" [startAt]="startDate"></md-datepicker>
 		<md-select placeholder="Geslacht" formControlName="gender" (change)="sehAlert.gender = $event.value">
       <md-option *ngFor="let gender of genders" [value]="gender">
         {{ gender }}
       </md-option>
-    </md-select>
+		</md-select>
+		<button md-raised-button type="submit" [disabled]="!sehAlertForm.valid">Submit</button>
 	</form>
 </div>
 

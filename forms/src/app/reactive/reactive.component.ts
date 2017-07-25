@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SEHAlert } from '../models/sehalert';
 import { SEHLevels, SEHTraumaTypes, SEHGenders } from '../models/constants';
 
@@ -12,21 +12,26 @@ export class ReactiveComponent implements OnInit {
 
   public sehAlert: SEHAlert;
   public sehAlertForm: FormGroup;
-  public levels = SEHLevels;
-  public traumaTypes = SEHTraumaTypes;
-  public genders = SEHGenders;
+  levels = SEHLevels;
+  traumaTypes = SEHTraumaTypes;
+  genders = SEHGenders;
+  startDate = new Date(1980, 0, 1);
 
   ngOnInit() {
     this.sehAlert = new SEHAlert();
 
     this.sehAlertForm = new FormGroup({
-      level: new FormControl(''),
-      trauma: new FormControl(''),
+      level: new FormControl('', Validators.required),
+      trauma: new FormControl('', Validators.required),
       patientName: new FormControl(''),
       gcs: new FormControl(''),
       birthDate: new FormControl(''),
       gender: new FormControl('')
     });
+  }
+
+  onSubmit(form) {
+    console.log(form);
   }
 
 }
