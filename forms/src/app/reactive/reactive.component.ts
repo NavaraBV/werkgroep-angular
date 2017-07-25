@@ -12,6 +12,9 @@ export class ReactiveComponent implements OnInit {
 
   public sehAlert: SEHAlert;
   public sehAlertForm: FormGroup;
+
+  traumas = [];
+
   levels = SEHLevels;
   traumaTypes = SEHTraumaTypes;
   genders = SEHGenders;
@@ -31,7 +34,8 @@ export class ReactiveComponent implements OnInit {
   }
 
   onSubmit(form) {
-    console.log(form);
+    this.traumas.unshift(form._value);
+    this.sehAlert = new SEHAlert();
+    this.sehAlertForm.reset();
   }
-
 }
